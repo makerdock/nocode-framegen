@@ -6,8 +6,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Farcaster Frame Builder",
-  description: "Build Farcaster Frames easily",
+  title: "StaticFrame",
+  description: "Configure and simply add static frames to your website in minutes.",
 }
 
 export default function RootLayout({
