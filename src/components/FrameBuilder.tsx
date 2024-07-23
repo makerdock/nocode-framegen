@@ -22,11 +22,11 @@ type Button = {
 }
 
 const FrameBuilder = () => {
-    const [imageUrl, setImageUrl] = useState('https://images.unsplash.com/photo-1721419336937-86dc7d479f2c?q=80&w=2912&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+    const [imageUrl, setImageUrl] = useState('https://framerusercontent.com/assets/JfP312GaWTANZbJN62qoZBUtm0Y.png')
     const [aspectRatio, setAspectRatio] = useState('1.91:1')
     const [buttons, setButtons] = useState<Button[]>([
-        { label: 'button 1', link: 'button 1' },
-        { label: 'button 2', link: 'button 2' },
+        { label: "Let's talk", link: 'https://t.me/bhimtebhaisaab' },
+        { label: 'Check us out', link: 'https://fbilabs.com/' },
     ])
     const [isPreviewMode, setIsPreviewMode] = useState(true)
     const { toast } = useToast()
@@ -113,7 +113,7 @@ const FrameBuilder = () => {
                 </div>
                 <p className='mt-2 text-sm'>Copy and paste the code above to your project&apos;s {`<head>`} tag </p>
             </div>
-            <div className="w-full col-span-3 md:py-12 p-2 container space-y-4">
+            <div className="w-full col-span-3 md:py-12 p-2 container space-y-4 flex flex-col justify-center">
                 <Card>
                     <CardHeader>
                         <CardTitle>Image</CardTitle>
