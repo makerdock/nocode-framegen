@@ -111,6 +111,7 @@ const FrameBuilder = () => {
                     </Button>
                     <Button onClick={copyCode}>Copy Code</Button>
                 </div>
+                <p className='mt-2 text-sm'>Copy and paste the code above to your website's {`<head>`} tag </p>
             </div>
             <div className="w-full col-span-3 md:py-12 p-2 container space-y-4">
                 <Card>
