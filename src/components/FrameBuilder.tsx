@@ -12,9 +12,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { cn } from '@/lib/utils'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaCode } from "react-icons/fa6"
 import { MdContentCopy, MdDelete } from "react-icons/md"
+import { motion } from 'framer-motion'
 
 type Button = {
     label: string
@@ -24,6 +25,7 @@ type Button = {
 const FrameBuilder = () => {
     const [imageUrl, setImageUrl] = useState('https://framerusercontent.com/assets/JfP312GaWTANZbJN62qoZBUtm0Y.png')
     const [aspectRatio, setAspectRatio] = useState('1.91:1')
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
     const [buttons, setButtons] = useState<Button[]>([
         { label: "Let's talk", link: 'https://t.me/bhimtebhaisaab' },
         { label: 'Check us out', link: 'https://fbilabs.com/' },
@@ -76,6 +78,23 @@ const FrameBuilder = () => {
 
     const validButtons = buttons.filter((button) => button.label && button.link)
 
+
+    useEffect(() => {
+        const updateDimensions = () => {
+            const container = document.getElementById('image-container');
+            if (container) {
+                const width = container.offsetWidth;
+                const [aspectWidth, aspectHeight] = aspectRatio.split(':').map(Number);
+                const height = (width / aspectWidth) * aspectHeight;
+                setDimensions({ width, height });
+            }
+        };
+
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, [aspectRatio]);
+
     return (
         <div className="h-screen md:grid grid-cols-5 gap-4">
             <div className="w-full col-span-2 bg-gray-50 md:p-12 p-2  flex flex-col justify-center">
@@ -97,7 +116,27 @@ const FrameBuilder = () => {
                 <div className='flex-1'>
                     {isPreviewMode ? (
                         <div className="border rounded-lg overflow-hidden">
-                            {imageUrl && <img src={imageUrl} alt="Frame Preview" className="w-full h-auto object-cover" style={{ aspectRatio: aspectRatio.split(':').join('/') }} />}
+                            {/* {imageUrl && <motion.img src={imageUrl} alt="Frame Preview" className="w-full h-auto object-cover" style={{ aspectRatio: aspectRatio.split(':').join('/') }} />} */}
+                            <div id="image-container" className="w-full">
+                                {imageUrl && (
+                                    <motion.div
+                                        initial={{ height: 0 }}
+                                        animate={{ height: dimensions.height }}
+                                        transition={{ duration: 0.3 }}
+                                        style={{ overflow: 'hidden' }}
+                                    >
+                                        <motion.img
+                                            src={imageUrl}
+                                            alt="Frame Preview"
+                                            className="w-full h-full object-cover"
+                                            // style={{ aspectRatio: aspectRatio.replace(':', '/') }}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ duration: 0.5 }}
+                                        />
+                                    </motion.div>
+                                )}
+                            </div>
                             <div className="space-y-2 rounded-lg rounded-t-none border border-t-0 bg-[#f3f3f3] px-4 py-2 border-faint dark:bg-[#2A2432]">
                                 <div className="md:flex w-full items-center md:space-x-[10px] grid grid-cols-2 gap-[10px]">
                                     {validButtons.map((button, index) => (
