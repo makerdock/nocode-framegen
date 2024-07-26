@@ -77,7 +77,7 @@ const FrameBuilder = () => {
             <div className="w-full col-span-2 bg-gray-50 md:p-12 p-2  flex flex-col justify-center">
                 <div className='mb-8 space-y-1'>
                     <div>
-                        <h2 className="text-4xl font-semibold">StaticFrames</h2>
+                        <h2 className="text-4xl font-semibold">StaticFrame</h2>
                         <p className='text-sm mb-2'>A simple way to integrate a simple frame to your website. <br />Copy and paste the code above to your project&apos;s {`<head>`} tag </p>
                     </div>
                     <div className="flex flex-col md:flex-row gap-2 mt-4">
