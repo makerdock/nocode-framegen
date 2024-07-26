@@ -19,7 +19,7 @@ const inriaSerif = Inria_Serif({
 export const metadata: Metadata = {
   title: "StaticFrame",
   description: "Configure and simply add static frames to your website in minutes.",
-  icons: "/logo.svg",
+  icons: "https://staticframe.fbilabs.com/logo.svg",
   viewport: "width=device-width, initial-scale=1",
 }
 
