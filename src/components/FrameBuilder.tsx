@@ -60,7 +60,7 @@ const FrameBuilder = () => {
             if (button.label && button.link) {
                 code += `
 <meta property="fc:frame:button:${index + 1}" content="${button.label}" />
-<meta property="fc:frame:button:${index + 1}:action" content="post_redirect" />
+<meta property="fc:frame:button:${index + 1}:action" content="link" />
 <meta property="fc:frame:button:${index + 1}:target" content="${button.link}" />`
             }
         })
