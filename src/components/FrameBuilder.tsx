@@ -15,7 +15,8 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { cn } from '@/lib/utils'
-
+import { MdContentCopy } from "react-icons/md";
+import { FaCode } from "react-icons/fa6";
 type Button = {
     label: string
     link: string
@@ -72,11 +73,26 @@ const FrameBuilder = () => {
     const validButtons = buttons.filter((button) => button.label && button.link)
 
     return (
-        <div className="h-screen md:grid grid-cols-5">
+        <div className="h-screen md:grid grid-cols-5 gap-4">
             <div className="w-full col-span-2 bg-gray-50 md:p-12 p-2  flex flex-col justify-center">
-                <h2 className="text-xl font-semibold mb-2">Preview / Code</h2>
-                {isPreviewMode ? (
-                    <div className="border p-4 mb-2">
+                <div className='mb-8 space-y-1'>
+                    <div>
+                        <h2 className="text-4xl font-semibold">StaticFrames</h2>
+                        <p className='text-sm mb-2'>A simple way to integrate a simple frame to your website. <br />Copy and paste the code above to your project&apos;s {`<head>`} tag </p>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-2 mt-4">
+                        <Button variant={isPreviewMode ? "default" : "ghost"} size="icon" onClick={() => setIsPreviewMode(!isPreviewMode)}>
+                            <FaCode />
+                        </Button>
+                        <Button size="icon" onClick={copyCode}>
+                            <MdContentCopy />
+                        </Button>
+                    </div>
+                </div>
+
+
+                <div className='flex-1'>
+                    {isPreviewMode ? (
                         <div className="border rounded-lg overflow-hidden">
                             {imageUrl && <img src={imageUrl} alt="Frame Preview" className="w-full h-auto object-cover" style={{ aspectRatio: aspectRatio.split(':').join('/') }} />}
                             <div className="space-y-2 rounded-lg rounded-t-none border border-t-0 bg-[#f3f3f3] px-4 py-2 border-faint dark:bg-[#2A2432]">
@@ -101,18 +117,12 @@ const FrameBuilder = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ) : (
-                    <Textarea className="mb-2 h-64" value={generateCode()} readOnly />
-                )}
-                <div className="flex flex-col md:flex-row gap-2">
-                    <Button onClick={() => setIsPreviewMode(!isPreviewMode)}>
-                        Toggle Preview/Code
-                    </Button>
-                    <Button onClick={copyCode}>Copy Code</Button>
+                    ) : (
+                        <Textarea className="mb-2 h-64" value={generateCode()} readOnly />
+                    )}
                 </div>
-                <p className='mt-2 text-sm'>Copy and paste the code above to your project&apos;s {`<head>`} tag </p>
             </div>
+
             <div className="w-full col-span-3 md:py-12 p-2 container space-y-4 flex flex-col justify-center">
                 <Card>
                     <CardHeader>
