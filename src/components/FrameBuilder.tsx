@@ -1,22 +1,20 @@
 "use client"
 
-import { useState } from 'react'
 import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
 import { cn } from '@/lib/utils'
-import { MdContentCopy } from "react-icons/md";
-import { FaCode } from "react-icons/fa6";
+import { useState } from 'react'
+import { FaCode } from "react-icons/fa6"
+import { MdContentCopy } from "react-icons/md"
 type Button = {
     label: string
     link: string
@@ -77,8 +75,8 @@ const FrameBuilder = () => {
             <div className="w-full col-span-2 bg-gray-50 md:p-12 p-2  flex flex-col justify-center">
                 <div className='mb-8 space-y-1'>
                     <div>
-                        <h2 className="text-4xl font-semibold">StaticFrame</h2>
-                        <p className='text-sm mb-2'>A simple way to integrate a simple frame to your website. <br />Copy and paste the code above to your project&apos;s {`<head>`} tag </p>
+                        <h2 className="text-6xl font-semibold font-serif italic">StaticFrame</h2>
+                        <p className='text-md mb-2'>A simple way to integrate a simple frame to your website. <br />Copy and paste the code above to your project&apos;s {`<head>`} tag </p>
                     </div>
                     <div className="flex flex-col md:flex-row gap-2 mt-4">
                         <Button variant={isPreviewMode ? "default" : "ghost"} size="icon" onClick={() => setIsPreviewMode(!isPreviewMode)}>
