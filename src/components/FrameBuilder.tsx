@@ -123,7 +123,7 @@ const FrameBuilder = () => {
                 </div>
             </div>
 
-            <div className="w-full col-span-3 md:py-12 p-2 container space-y-4 flex flex-col justify-center">
+            <div className="w-full col-span-3 md:py-12 p-2 container space-y-4 flex flex-col">
                 <Card>
                     <CardHeader>
                         <CardTitle>Image</CardTitle>
