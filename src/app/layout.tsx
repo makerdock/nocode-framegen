@@ -1,5 +1,5 @@
 import { Toaster } from "@/components/ui/toaster"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inria_Sans, Inria_Serif } from "next/font/google"
 import "./globals.css"
 
@@ -16,11 +16,14 @@ const inriaSerif = Inria_Serif({
   weight: "700",
 })
 
+export const viewport: Viewport = {
+  themeColor: 'black',
+}
+
 export const metadata: Metadata = {
   title: "StaticFrame",
   description: "Configure and simply add static frames to your website in minutes.",
   icons: "https://staticframe.fbilabs.com/logo.svg",
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "StaticFrame",
     description: "Configure and simply add static frames to your website in minutes.",
