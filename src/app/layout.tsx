@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     "fc:frame:image": "https://staticframe.fbilabs.com/og.png",
     "fc:frame:image:aspect_ratio": "1.91:1",
     "fc:frame:button:1": "Follow the builder",
-    "fc:frame:button:1:action": "post_redirect",
+    "fc:frame:button:1:action": "link",
     "fc:frame:button:1:target": "https://warpcast.com/0xbhaisaab",
     "fc:frame:button:2": "Check it out",
-    "fc:frame:button:2:action": "post_redirect",
+    "fc:frame:button:2:action": "link",
     "fc:frame:button:2:target": "https://staticframe.fbilabs.com/",
   },
 }
