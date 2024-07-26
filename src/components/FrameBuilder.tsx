@@ -177,7 +177,8 @@ const FrameBuilder = () => {
                                     />
                                 </div>
                                 <Button
-                                    variant="destructive"
+                                    variant="ghost"
+                                    className="text-red-500 hover:text-red-500 opacity-60 hover:opacity-100 hover:bg-red-100"
                                     size="icon"
                                     onClick={() => deleteButton(index)}
                                 >
